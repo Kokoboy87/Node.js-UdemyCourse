@@ -8,7 +8,7 @@
 // // require the validation packages
 // const validator = require('validator');
 // // Challenge 3 require chalk
-const chalk = require('chalk');
+// const chalk = require('chalk');
 // // ----------------------------------------------------------------------------- // //
 // // ============= Practice ================= // //
 // const sum = add(4, 5);
@@ -53,4 +53,4 @@ const chalk = require('chalk');
 // //
 // // Bonus: Use docs to mess with other styles. Make text bold and inversed.
 
-console.log(chalk.green('Success!'));
+// console.log(chalk.inverse.green.bold('Success!'));
