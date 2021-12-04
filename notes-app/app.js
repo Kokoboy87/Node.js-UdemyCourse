@@ -2,13 +2,15 @@
 // // And the name of the variable doesn't need to match the name of the variable on the utils.js file
 // const add = require('./utils.js');
 // // That's for the second Challenge
-// const getNotes = require('./notes.js');
+const getNotes = require('./notes.js');
 // // we create a variable to import fs(file system) documentations
 // const fs = require('fs');
 // // require the validation packages
 // const validator = require('validator');
 // // Challenge 3 require chalk
-// const chalk = require('chalk');
+const chalk = require('chalk');
+// // load yargs from the nodes library
+const yargs = require('yargs');
 // // ----------------------------------------------------------------------------- // //
 // // ============= Practice ================= // //
 // const sum = add(4, 5);
@@ -17,6 +19,38 @@
 
 // // imptort URL validations from the validator package
 // console.log(validator.isURL('http://github.com'));
+
+// console.log(process.argv[2]);
+
+// const command = process.argv[2];
+
+// //--------- Customize yargs version --------// //
+yargs.version('1.1.0');
+
+// // add, remove, read, list // //
+// // Create add command
+yargs.command({
+	command: 'add',
+	describe: 'Add a new note',
+	handler: function () {
+		console.log('Adding a new note');
+	},
+});
+
+// // Create remove command
+yargs.command({
+	command: 'remove',
+	describe: 'Remove a note',
+	handler: function () {
+		console.log('Removing a note');
+	},
+});
+
+// if (command === 'add') {
+// 	console.log('Adding note!');
+// } else if (command === 'remove') {
+// 	console.log('Removing note!');
+// }
 
 // //   ========   Challenge 1  ========   //
 // //-- Append a message to notes.txt --//
@@ -54,3 +88,31 @@
 // // Bonus: Use docs to mess with other styles. Make text bold and inversed.
 
 // console.log(chalk.inverse.green.bold('Success!'));
+
+// //   ========   Challenge 4  ========   //
+// //-- Add two new commands --//
+
+// // 1. Setup command to support "list" command (print placeholder message for now)
+// // 2. Setup command to support "read" command (print placeholder message for now)
+// // 3. Test your work by running both commands and ensure correct output
+
+// Create list command
+yargs.command({
+	command: 'list',
+	describe: 'List a note',
+	handler: function () {
+		console.log('Listed a notes');
+	},
+});
+
+// Create read command
+yargs.command({
+	command: 'read',
+	describe: 'Read a note',
+	handler: function () {
+		console.log('Read a note');
+	},
+});
+
+console.log(process.argv);
+console.log(yargs.argv);
