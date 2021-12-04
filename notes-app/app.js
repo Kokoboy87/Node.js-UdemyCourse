@@ -77,7 +77,7 @@ const yargs = require('yargs');
 // //--------- Customize yargs version --------// //
 yargs.version('1.1.0');
 
-// // add, remove, read, list // //
+// // add, remove, list, read // //
 // // Create add command
 yargs.command({
 	command: 'add',
@@ -103,7 +103,7 @@ yargs.command({
 	command: 'list',
 	describe: 'List a note',
 	handler: function () {
-		console.log('Listed a notes');
+		console.log('Listing out all notes');
 	},
 });
 
