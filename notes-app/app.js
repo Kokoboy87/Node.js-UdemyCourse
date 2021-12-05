@@ -82,8 +82,21 @@ yargs.version('1.1.0');
 yargs.command({
 	command: 'add',
 	describe: 'Add a new note',
-	handler: function () {
-		console.log('Adding a new note');
+	builder: {
+		title: {
+			describe: 'Note title',
+			demandOption: true,
+			type: 'string',
+		},
+		body: {
+			describe: 'Your note here',
+			demandOption: true,
+			type: 'string',
+		},
+	},
+	handler: function (argv) {
+		console.log('Title: ' + argv.title);
+		console.log('Body: ' + argv.body);
 	},
 });
 
@@ -116,5 +129,15 @@ yargs.command({
 	},
 });
 
-console.log(process.argv);
-console.log(yargs.argv);
+// //Is the same as console.log(yargs.argv);
+yargs.parse();
+
+// console.log(process.argv);
+
+// //   ========   Challenge 5  ========   //
+// //-- Add an options to yargs --//
+
+// // 1. Setup the body option for the add command
+// // 2. Configure a description, make it required, and for it to be a string
+// // 3. Log the body value in the handler function
+// // 4. Test your work!
