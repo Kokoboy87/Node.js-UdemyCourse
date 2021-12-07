@@ -2,7 +2,7 @@
 // // And the name of the variable doesn't need to match the name of the variable on the utils.js file
 // const add = require('./utils.js');
 // // That's for the second Challenge
-const getNotes = require('./notes.js');
+const notes = require('./notes.js');
 // // we create a variable to import fs(file system) documentations
 // const fs = require('fs');
 // // require the validation packages
@@ -95,8 +95,7 @@ yargs.command({
 		},
 	},
 	handler: function (argv) {
-		console.log('Title: ' + argv.title);
-		console.log('Body: ' + argv.body);
+		notes.addNote(argv.title, argv.body);
 	},
 });
 
