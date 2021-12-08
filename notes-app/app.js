@@ -77,6 +77,14 @@ const yargs = require('yargs');
 // //--------- Customize yargs version --------// //
 yargs.version('1.1.0');
 
+// //   ========   Challenge 5  ========   //
+// //-- Add an options to yargs --//
+
+// // 1. Setup the body option for the add command
+// // 2. Configure a description, make it required, and for it to be a string
+// // 3. Log the body value in the handler function
+// // 4. Test your work!
+
 // // add, remove, list, read // //
 // // Create add command
 yargs.command({
@@ -133,10 +141,11 @@ yargs.parse();
 
 // console.log(process.argv);
 
-// //   ========   Challenge 5  ========   //
-// //-- Add an options to yargs --//
+// //   ========   Challenge 7  ========   //
+// //-- Setup command option and function --//
 
-// // 1. Setup the body option for the add command
-// // 2. Configure a description, make it required, and for it to be a string
-// // 3. Log the body value in the handler function
-// // 4. Test your work!
+// // 1. Setup the remove command to take a required "--title" option
+// // 2. Create and export a removeNote function from notes.js
+// // 3. Call removeNote in remove command handler
+// // 4. Have removeNote log the title of the note to be removed
+// // 5. Test your work using: node app.js remove --title="some title"

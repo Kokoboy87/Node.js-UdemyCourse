@@ -17,7 +17,7 @@ const { json } = require('node:stream/consumers');
 // const data = JSON.parse(dataJSON);
 // console.log(data.title);
 
-// //   ========   Challenge 5  ========   //
+// //   ========   Challenge 6  ========   //
 // //-- Work with JSON and the file system --//
 
 // // 1. Load and parse the JSON data
