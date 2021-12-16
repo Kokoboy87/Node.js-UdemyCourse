@@ -104,6 +104,8 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.addNote(argv.title, argv.body);
+		//------FIXME------//
+		console.log(chalk.inverse.green.bold('Success!'));
 	},
 });
 
@@ -129,6 +131,8 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.removeNote(argv.title);
+		//------FIXME-----//
+		console.log(chalk.inverse.red('Note removed successfully!'));
 	},
 });
 
