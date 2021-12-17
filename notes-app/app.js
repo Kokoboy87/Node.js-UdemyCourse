@@ -142,8 +142,11 @@ yargs.command({
 yargs.command({
 	command: 'list',
 	describe: 'List a note',
+	builder: {
+		title: {},
+	},
 	handler() {
-		console.log('Listing out all notes');
+		notes.listNotes();
 	},
 });
 
