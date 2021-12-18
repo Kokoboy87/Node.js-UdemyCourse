@@ -77,14 +77,6 @@ const yargs = require('yargs');
 // //--------- Customize yargs version --------// //
 yargs.version('1.1.0');
 
-// //   ========   Challenge 5  ========   //
-// //-- Add an options to yargs --//
-
-// // 1. Setup the body option for the add command
-// // 2. Configure a description, make it required, and for it to be a string
-// // 3. Log the body value in the handler function
-// // 4. Test your work!
-
 // // add, remove, list, read // //
 // // Create add command
 yargs.command({
@@ -104,19 +96,9 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.addNote(argv.title, argv.body);
-		//------FIXME------//
 		console.log(chalk.inverse.green.bold('Success!'));
 	},
 });
-
-// //   ========   Challenge 7  ========   //
-// //-- Setup command option and function --//
-
-// // 1. Setup the remove command to take a required "--title" option
-// // 2. Create and export a removeNote function from notes.js
-// // 3. Call removeNote in remove command handler
-// // 4. Have removeNote log the title of the note to be removed
-// // 5. Test your work using: node app.js remove --title="some title"
 
 // // Create remove command
 yargs.command({
@@ -131,7 +113,6 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.removeNote(argv.title);
-		//------FIXME-----//
 		console.log(chalk.inverse.red('Note removed successfully!'));
 	},
 });
@@ -142,9 +123,6 @@ yargs.command({
 yargs.command({
 	command: 'list',
 	describe: 'List a note',
-	builder: {
-		title: {},
-	},
 	handler() {
 		notes.listNotes();
 	},
@@ -154,8 +132,15 @@ yargs.command({
 yargs.command({
 	command: 'read',
 	describe: 'Read a note',
-	handler() {
-		console.log('Read a note');
+	builder: {
+		title: {
+			describe: 'Note title',
+			demandOption: true,
+			type: 'string',
+		},
+	},
+	handler(argv) {
+		notes.readNote(argv.title);
 	},
 });
 
