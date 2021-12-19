@@ -96,7 +96,6 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.addNote(argv.title, argv.body);
-		console.log(chalk.inverse.green.bold('Success!'));
 	},
 });
 
@@ -113,7 +112,6 @@ yargs.command({
 	},
 	handler(argv) {
 		notes.removeNote(argv.title);
-		console.log(chalk.inverse.red('Note removed successfully!'));
 	},
 });
 
