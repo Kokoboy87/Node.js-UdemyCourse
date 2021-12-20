@@ -8,6 +8,11 @@ const addNote = (title, body) => {
 	// const duplicateNotes = notes.filter(function (note) {
 	// 	return note.title === title;
 	// });
+	/*
+	console.log(duplicateNote); // Console.log way to debug
+	console.log(title); // Console.log way to debug
+*/
+	debugger;
 
 	if (!duplicateNote) {
 		notes.push({
