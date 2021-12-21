@@ -12,7 +12,6 @@ const addNote = (title, body) => {
 	console.log(duplicateNote); // Console.log way to debug
 	console.log(title); // Console.log way to debug
 */
-	debugger;
 
 	if (!duplicateNote) {
 		notes.push({
