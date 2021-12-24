@@ -1,3 +1,4 @@
+/*
 console.log('Starting');
 
 setTimeout(() => {
@@ -8,3 +9,4 @@ setTimeout(() => {
 	console.log('0 second Timer');
 }, 0);
 console.log('Stopping');
+*/
