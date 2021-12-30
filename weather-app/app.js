@@ -1,4 +1,5 @@
 const request = require('request');
+const geocode = require('./utils/geocode');
 
 // // API weather service (weatherstack.com)
 // const url = 'http://api.weatherstack.com/current?access_key=ff8269c5b0bd46ba6e40cce113c0e3e8&query=37.8267,-122.4233&units=f';
@@ -14,16 +15,24 @@ const request = require('request');
 // 	}
 // });
 
-// API Geolocation service (mapbox.com)
-const geoURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Dc.json?access_token=pk.eyJ1Ijoia29rb2JveSIsImEiOiJja3hvYWtqZGQ3cGxlMnVybmlvMzMybWg5In0.8FjBCn9yDSwNjT2RTHewOg';
-// Geolocation service request
-request({ url: geoURL, json: true }, (error, response) => {
-	if (error) {
-		console.log('Enable to get location at this time!');
-	} else if (response.body.message) {
-		console.log('Inaccurate location!');
-	} else {
-		const location = response.body;
-		console.log(`The longtitude is ${location.features[0].center[0]}, and the latitude is ${location.features[0].center[1]}`);
-	}
+//
+// Goal: Create a reusable function for getting the forecast
+//
+// 1. Setup the "forecast" function in utils/forecast.js
+// 2. Require the function in app.js and call it as shown below
+// 3. The forecast function should have three potential calls to callback:
+//    - Low level error, pass string for error
+//    - Coordinate error, pass string for error
+//    - Success, pass forecast string for data (same format as from before)
+
+forecast(-75.7088, 44.1545, (error, data) => {
+	console.log('Error', error);
+	console.log('Data', data);
+});
+
+// ======================================================================= //
+
+geocode('dc', (error, data) => {
+	console.log('Error', error);
+	console.log('Data', data);
 });
