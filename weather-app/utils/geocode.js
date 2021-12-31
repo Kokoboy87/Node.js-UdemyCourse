@@ -6,8 +6,6 @@ const geocode = (address, callback) => {
 	request({ url: url, json: true }, (error, response) => {
 		if (error) {
 			callback('Unable to get location at this time!');
-		} else if (response.body.message) {
-			callback('You need to enter location!');
 		} else if (response.body.features.length === 0) {
 			callback('Inaccurate location!');
 		} else {
