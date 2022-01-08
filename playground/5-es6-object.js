@@ -1,15 +1,15 @@
-//// Object property shorthand
+// Object property shorthand
 
-//const name = 'Georgios';
-//const userAge = 34;
+const name = 'Georgios';
+const userAge = 34;
 
-//const user = {
-//	name,
-//	age: userAge,
-//	location: 'Landmark',
-//};
+const user = {
+	name,
+	age: userAge,
+	location: 'Landmark',
+};
 
-//console.log(user);
+console.log(user);
 
 //===== Object destructuring =====//
 
@@ -26,15 +26,23 @@ const product = {
 //const label = product.label;
 //const stock = product.stock;
 
-//// ---- Structuring syntax ---- //
-//const { label: productLabel, stock, rating = 5 } = product; // we can rename the property name "propertyName: newName" change the name of the property
-//console.log(productLabel);
-//console.log(stock);
-//console.log(rating);
+// ---- Destructuring syntax ---- //
+const { label: productLabel, stock, rating = 5 } = product; // we can rename the property name "propertyName: newName" change the name of the property
+console.log(productLabel);
+console.log(stock);
+console.log(rating);
 
-// destructuring with function arguments
+// Destructuring with function arguments
 const transaction = (type, { label, stock }) => {
 	console.log(type, label, stock);
 };
 
 transaction('order', product);
+
+// ES6 Default function parameters
+const greet = (name = 'User') => {
+	console.log(`Hello, ${name}!`);
+};
+
+greet('George'); // Print 'Hello George"
+greet(); // Print 'Hello User' instead of undefined
