@@ -6,8 +6,10 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	max-width: 650px;
+	min-height: 100vh;
 	margin: 0 auto;
 	padding: 0 16px;
+	flex-grow: 1;
 }
 
 footer {
@@ -37,10 +39,20 @@ header a {
 }
 
 h1 {
-	font-size: 60px;
-	margin-bottom: 20px;
+	font-size: 80px;
+	margin: 10px 10px 20px 10px;
 }
 
 .portrait {
 	width: 450px;
+}
+
+p {
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	flex-grow: 1;
+	border-bottom: 1px solid #888888;
 }
