@@ -33,11 +33,12 @@ console.log(stock);
 console.log(rating);
 
 // Destructuring with function arguments
-const transaction = (type, { label, stock }) => {
+const transaction = (type, { label, stock = 0 } = {}) => {
 	console.log(type, label, stock);
 };
 
 transaction('order', product);
+transaction('order'); // this is for when we dont pass an argument value and we use default function parameters with empty function on line 36.
 
 // ES6 Default function parameters
 const greet = (name = 'User') => {

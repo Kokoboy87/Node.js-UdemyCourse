@@ -1,8 +1,12 @@
 // Load the libraries
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+console.log(forecast);
+console.log(geocode);
 // Store the express application
 const app = express();
 
@@ -49,10 +53,24 @@ app.get('/weather', (req, res) => {
 			error: 'Address must be provided',
 		});
 	}
-	res.send({
-		forecast: 'Rainy weather',
-		location: 'Landmark, VA',
-		address: req.query.address,
+	// Call the geocode function. // callback function to fetch the latitude, longitude, and location
+	geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+		if (error) {
+			// Shorthand error message
+			return res.send({ error });
+		}
+		// Call the forecast function
+		forecast(latitude, longitude, (error, forecastData) => {
+			if (error) {
+				return res.send({ error });
+			}
+			//sending back the object
+			res.send({
+				forecast: forecastData,
+				location,
+				address: req.query.address,
+			});
+		});
 	});
 });
 
