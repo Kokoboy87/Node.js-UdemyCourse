@@ -10,7 +10,7 @@ const forecast = (latitude, longitude, callback) => {
 			callback('Inaccurate location!');
 		} else {
 			const current = body.current;
-			callback(undefined, `${current.weather_descriptions}. It is currently ${current.temperature} celsius out. It feels like ${current.feelslike} celsius out.`);
+			callback(undefined, `Weather condition '${current.weather_descriptions}'. It is currently '${current.temperature}' celsius out, It feels like '${current.feelslike}' celsius. And the humidity is at ${current.humidity}%.`);
 		}
 	});
 };

@@ -30,11 +30,11 @@ header {
 }
 
 header a {
-	color: rgb(95, 13, 95);
+	color: #333333;
 	margin: 0px 3px;
 	padding: 2px;
 	text-decoration: none;
-	outline-style: solid;
+	border: 1px solid #cccccc;
 }
 
 h1 {
@@ -52,6 +52,22 @@ p {
 }
 
 .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	flex-grow: 1;
 	border-bottom: 1px solid #888888;
+}
+
+input {
+	border: 1px solid #cccccc;
+	padding: 8px;
+}
+
+button {
+	cursor: pointer;
+	border: 1px solid #888888;
+	background: #888888;
+	color: white;
+	padding: 8px;
 }
