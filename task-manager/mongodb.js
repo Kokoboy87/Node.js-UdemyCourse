@@ -13,6 +13,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
 	const db = client.db(databaseName);
 
+	// --------- That's the first of the CRUD operations 'Create'. --------- //
 	//	db.collection('users').insertOne(
 	//		{
 	//			name: 'Georgios',
@@ -44,4 +45,28 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 	//		console.log(result.insertedIds);
 	//	}
 	//);
+
+	// --------- That's the first of the CRUD operations 'Create'. --------- //
+	db.collection('tasks').insertMany(
+		[
+			{
+				description: 'Grocery shopping',
+				completed: false,
+			},
+			{
+				description: 'Give a bath to my dog',
+				completed: false,
+			},
+			{
+				description: 'Apply for jobs',
+				completed: true,
+			},
+		],
+		(error, result) => {
+			if (error) {
+				return console.log('Unable to insert documents!');
+			}
+			console.log(result.insertedIds);
+		}
+	);
 });
