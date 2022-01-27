@@ -20,35 +20,10 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
 	const db = client.db(databaseName);
 
-	//db.collection('users')
-	//	.updateOne(
-	//		{
-	//			_id: new ObjectId('61eb1be45500508d0bb3b301'),
-	//		},
-	//		{
-	//			$inc: {
-	//				age: 35,
-	//			},
-	//		}
-	//	)
-	//	.then((result) => {
-	//		console.log(result);
-	//	})
-	//	.catch((error) => {
-	//		console.log(error);
-	//	});
-
 	db.collection('tasks')
-		.updateMany(
-			{
-				completed: false,
-			},
-			{
-				$set: {
-					completed: true,
-				},
-			}
-		)
+		.deleteOne({
+			description: 'Give a bath to my dog',
+		})
 		.then((result) => {
 			console.log(result);
 		})
