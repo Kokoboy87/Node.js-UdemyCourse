@@ -1,14 +1,14 @@
 // Loading express
 const express = require('express');
-// require the mongoose
+// require the mongoose file
 require('./db/mongoose');
-// Load user in
+// require user file to load the user
 const User = require('./models/user');
 // Creating new Express application
 const app = express();
 // Port Value for Heroku deployment
 const port = process.env.PORT || 3000;
-
+// setting up a call to pass income
 app.use(express.json());
 
 app.post('/users', (req, res) => {
